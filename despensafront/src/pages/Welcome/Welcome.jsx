@@ -4,7 +4,8 @@ import './Welcome.css'
 
 import Card from '../../components/designComponents/Card/Card'
 import { AuthContext } from '../../context/AuthContext'
-import { homeBgImage } from '../../config/constants'
+// import { homeBgImage } from '../../config/constants'
+import welcomeBg from '../../assets/img/photos/welcome_bg.webp';
 import WelcomeMap from '../../components/MainComponents/WelcomeMap/WelcomeMap'
 import { defaultProfileImage } from '../../config/constants'
 
@@ -49,7 +50,7 @@ const Welcome = (props) => {
   return (
     <div className='home-container'>
 
-        <img className='background-image' src={homeBgImage} alt="Imagen de fondo de la pantalla de Login o Sign Up" />
+        <img className='background-image' src={welcomeBg} alt="Imagen de fondo de la pantalla de Login o Sign Up" />
 
         <div id='welcome-content'>
             <section id='welcome-info'>
