@@ -29,11 +29,10 @@ app.use("/api/v1/users", userRoutes);
 app.use("/api/v1/conversations", conversationRoutes);
 
 
-const PORT = process.env.PORT;
-app.listen( PORT, () => {
-    console.log(`Servidor escuchando en ${PORT}`);
-}
-);
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+    console.log(`Servidor escuchando en el puerto ${PORT}`);
+});
 // app.use("/*", (req, res, next) => {return res.status(404).json("Route not found")});
 
 app.use((req, res) => {res.status(404).json({ message: "Route not found" });
