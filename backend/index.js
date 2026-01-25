@@ -17,7 +17,11 @@ import conversationRoutes from "./src/api/v1/routes/conversationRoutes.js";
 
 const app = express();
 app.use(express.json());
-app.use(cors());
+app.use(cors({
+  origin: "https://despensa-comun.vercel.app",
+  methods: "GET,POST,PUT,DELETE",
+  credentials: true
+}));
 
 
 app.use("/api/v1/favorites", favoriteRoutes);
