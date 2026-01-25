@@ -18,7 +18,7 @@ import Transactions from './pages/Transactions/Transactions.jsx';
 import OverView from './pages/OverView/OverView.jsx'
 import GroupCreateForm from './components/MainComponents/GroupCreateForm/GroupCreateForm.jsx'
 import GroupDetail from './pages/GroupDetail/GroupDetail.jsx'
-import UserDetail from './pages/userDetail/userDetail.jsx'
+import UserDetail from './pages/UserDetail/UserDetail.jsx'
 import ChatOverlay from './pages/ChatOverlay/ChatOverlay.jsx'
 import ChatContainer from './components/MainComponents/ChatContainer/ChatContainer.jsx'
 import Welcome from './pages/Welcome/Welcome.jsx'
