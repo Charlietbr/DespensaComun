@@ -36,6 +36,7 @@
     transition: var(--transition-global);
     flex-shrink: 0;
     background-color: aqua;
+    z-index: 99;
 }
 
 .logo-container.light{
