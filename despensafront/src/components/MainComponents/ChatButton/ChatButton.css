@@ -1,0 +1,29 @@
+.chat-button-container{
+    position: fixed;
+    top: 120px;
+    right:85px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(97, 104, 87);
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    border: var(--button-border);
+    transition: var(--transition-global);
+    cursor: pointer;
+
+    box-shadow: var(--button-shadow);
+    z-index: 999;
+    flex-shrink: 0;
+}
+
+.chat-button-container:hover{
+    scale: var(--button-scaling);
+    rotate: var(--button-rotation);
+}
+
+.context-pending{
+    background-color: rgb(154, 16, 16);
+}
+

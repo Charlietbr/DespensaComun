@@ -1,0 +1,140 @@
+@font-face {
+  font-family: 'Host-Grotesk';
+  src: url('./assets/fonts/Host_Grotesk/HostGrotesk-VariableFont_wght.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Host-Grotesk-Italic';
+  src: url('./assets/fonts/Host_Grotesk/HostGrotesk-Italic-VariableFont_wght.ttf') format('truetype');
+  font-weight: 200;
+  font-style: italic;
+}
+
+
+/*BORRAR: Borde div para desarrollo*/
+
+/* div{
+  border: 1px solid gray;
+} */
+
+body{
+
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+  min-height: 800px;
+  min-width: 350px;
+
+  --font-main: 'Host-Grotesk', Courier, monospace;
+  --font-italic: 'Host-Grotesk-Italic', Courier, monospace;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+
+
+/*DARK SCHEME*/
+
+    
+    --dark-color: rgb(50, 50, 50);
+    --light-color: rgba(233, 233, 233);
+
+    --dark-border-color: rgb(50, 50, 50, 0.2);
+    --light-border-color: rgb(233, 233, 233, 0.2);
+
+    --box-bg-color:  rgba(107, 76, 137, 0.191);
+    --line-bg-color: rgba(107, 76, 137, 0.191);
+    --line-link-color: rgb(76, 160, 63);
+
+    --chat-buttons: rgb(75, 60, 89);
+
+    
+
+
+
+    /* Setup secciones - borde y fondo*/
+
+    --app-border-radius: 10px;
+
+    --button-border: 5px solid white;
+    --button-shadow: 0px 0px 10px gray;
+    --button-rotation: -340deg;
+    --button-scaling: 1.05;
+   
+    --transition-global: 0.3s ease-in-out;
+    --scaling-global: 1.06;
+
+
+
+
+    --dark-scheme-card-products-border-color: rgb(0, 133, 7);
+    --dark-scheme-card-products-bg-color: rgb(0, 133, 7, 0.05);
+    
+    --dark-scheme-card-groups-border-color: rgb(63, 157, 0);
+    --dark-scheme-card-groups-bg-color: rgb(63, 157, 0, 0.05);
+
+    --dark-scheme-card-messages-border-color: rgb(74, 202, 10);
+    --dark-scheme-card-messages-bg-color: rgba(160, 208, 0, 0.05);
+
+    --dark-scheme-card-favorites-border-color: rgb(9, 165, 35);
+    --dark-scheme-card-favorites-bg-color: rgba(0, 227, 38, 0.05);
+
+    --dark-scheme-card-transactions-border-color: rgb(112, 194, 12);
+    --dark-scheme-card-transactions-bg-color: rgb(217, 255, 0, 0.05);
+    
+    --dark-scheme-card-users-border-color: rgb(0, 128, 255);
+    --dark-scheme-card-users-bg-color: rgb(0, 128, 255, 0.05);
+    
+
+
+    
+    height: 100vh;
+    width: 100vw;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+
+    background-color: var(--dark-color);
+    font-family: var(--font-main);
+
+
+
+
+}
+
+#root{
+
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    background-color: var(--dark-scheme-body-color);
+}
+
+
+*{
+  text-decoration: none;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+  display: inline-block;
+  transition: var(--transition-global);
+}
+
+a:hover{
+  scale: var(--scaling-global);
+}
+
+

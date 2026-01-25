@@ -1,0 +1,126 @@
+.card{
+
+    min-width: fit-content;
+    max-height: 600px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 0.5em;
+    margin: 1em;
+    border-radius: var(--app-border-radius);
+    background-color: var(--box-bg-color);
+
+    gap: 10px;
+
+    opacity: 1;
+    transition: 1s ease-in-out;
+
+ 
+
+}
+
+
+.card.title{
+    padding:  0px 0px 0px 0px;
+    width: 60%;
+
+}
+
+.cardContent{
+    height: 100%;
+    width: 100%;
+    min-width: fit-content;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    overflow-y: auto;
+
+}
+
+
+
+.card li {
+    min-height: 30px;
+    width: 100%;
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    margin: 5px 0px 5px 0px;
+    padding: 3px 0px 3px 10px;
+    opacity: 0.8;
+    gap: 1em;
+    background-color: var(--line-bg-color);
+    border-radius: var(--app-border-radius);
+
+
+}
+
+.login{
+    border: 2px solid var(--dark-scheme-font-color);
+    display: flex;
+    flex-direction: column;
+}
+
+.login-form{
+    display: inline;
+}
+
+
+
+.card footer{
+
+    z-index: 1;
+    bottom: 10px;
+    padding: 0px 0px 0px 0px;
+    display: flex;
+    justify-content: end;
+
+}
+
+
+
+.form{
+    border: none;
+    background-color: var(--dark-scheme-card-users-bg-color);
+}
+.form .title{
+    font-size: larger;
+}
+
+
+
+.products{
+    border: 1px solid transparent;
+    background-color: var(--dark-scheme-card-products-bg-color);
+}
+
+
+.groups{
+    border: 1px solid transparent;
+    background-color: var(--dark-scheme-card-groups-bg-color);
+}
+
+
+.messages{
+    border: 1px solid transparent;
+    background-color: var(--dark-scheme-card-messages-bg-color);
+}
+
+
+.favorites{
+    border: 1px solid transparent;
+    background-color: var(--dark-scheme-card-favorites-bg-color);
+}
+
+
+.transactions{
+    border: 1px solid transparent;
+    background-color: var(--dark-scheme-card-transactions-bg-color);
+}
+
+.users{
+    border: 1px solid transparent;
+    background-color: var(--dark-scheme-card-users-bg-color);
+}

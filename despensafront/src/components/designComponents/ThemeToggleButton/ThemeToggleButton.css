@@ -1,0 +1,26 @@
+.theme-toggle-btn {
+  height: 60px;
+  width: 60px;
+  padding: 1rem;
+  border-radius: 50%;
+  font-size: 1rem;
+  cursor: pointer;
+  box-shadow: var(--button-shadow);
+  border: var(--button-border);
+  transition: var(--transition-global);
+}
+
+.theme-toggle-btn:hover{
+    scale: var(--button-scaling);
+    rotate: var(--button-rotation);
+}
+
+.theme-toggle-btn.light {
+  background-color: #f3f4f6;
+  color: #111827;
+}
+
+.theme-toggle-btn.dark {
+  background-color: #1f2937;
+  color: #f3f4f6;
+}

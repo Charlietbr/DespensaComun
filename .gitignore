@@ -1,0 +1,9 @@
+**/node_modules
+
+**/.env
+
+.DS_store
+Thumbs_db
+
+**/dist/
+**/dist-ssr/

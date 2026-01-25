@@ -1,0 +1,100 @@
+
+
+body.dark .form {
+  background: var(--dark-color);
+  color: var(--light-color);
+}
+
+body.light .form {
+  background: var(--light-color);
+  color: var(--dark-color);
+}
+
+
+
+form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1em;
+  max-width: 400px;
+
+  padding: 1.5rem;
+  border-radius: var(--app-border-radius);
+  
+}
+
+
+
+.form input,
+.form textarea {
+    width: 100%;
+  padding: 0.5rem;
+  border-radius: 10px;
+  border: none;
+  font-size: 1rem;
+}
+
+body.dark .file-upload-container img{
+    height: 100px;
+    width: 100px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 5px solid var(--light-color);
+    margin: 10px;
+}
+body.light .file-upload-container img{
+    height: 100px;
+    width: 100px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 5px solid var(--dark-color);
+    margin: 10px;
+}
+
+.file-upload-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px 0px 1dvh 0px;;
+}
+
+.preview {
+  text-align: center;
+}
+
+.preview img {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.message {
+  margin-top: 1rem;
+  text-align: center;
+}
+
+
+.editFormTitle{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.card-list{
+ background-color: red; 
+}
+
+
+.checkbox{
+  display: block;
+}
+
+label{
+  min-width: fit-content;
+  margin-left: 15px;
+}
+

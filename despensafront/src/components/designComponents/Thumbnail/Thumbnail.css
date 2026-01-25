@@ -1,0 +1,28 @@
+.thumbnail-s {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0px 1px 6px rgb(130, 130, 130);
+    flex-shrink: 0;
+}
+
+
+.thumbnail-m {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0px 1px 10px rgb(130, 130, 130);
+    flex-shrink: 0;
+}
+
+
+.thumbnail-l {
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0px 1px 10px rgb(130, 130, 130);
+    flex-shrink: 0;
+}

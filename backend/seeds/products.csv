@@ -1,0 +1,17 @@
+name,description,category,quantity,unit,isPublic,ownerName,groupName
+Tomates Raf,Muy sabrosos,intercambio,5,kilos,true,María del Monte,Huerto Comunitario
+Aguacates,Recién cogidos,donación,2,kilos,false,Carlos Jean,Productores Madrid Sur
+Perejil Fresco,Mucha cantidad,donación,1,unidades,true,Lucía del Montón,
+Hierba medicinal,Huele a kilómetros,intercambio,30,kilos,true,María del Monte,
+Tomates pera,Muy sabrosos,intercambio,5,kilos,true,María del Monte,Huerto Comunitario
+Lemmons,Recién cogidos,donación,2,kilos,false,Carlos Jean,Productores Madrid Sur
+Perejil,Mucha cantidad,donación,1,unidades,true,Lucía del Montón,
+Miel de flowers,Artesanal,intercambio,3,unidades,true,Roy Good,
+Naranjas Navel,Dulcísimas,donación,10,kilos,true,Elena Cases,Red del Delta
+Ajos Morados,Calidad superior,intercambio,2,unidades,true,Paco Tébar,Castilla Profunda
+Patatas Kennebec,Recién sacadas,intercambio,20,kilos,true,Juan Villalba,Sierra Oeste Sharing
+Lechugas Roble,Muy tiernas,donación,4,unidades,true,Ricardo Valde,
+Mermelada mora,Hecha a mano,intercambio,3,unidades,true,Sofía Escorial,
+Vino tinto joven,De mi propia viña,intercambio,6,unidades,true,Miguel Naval,
+Harina de fuerza,Molida en piedra,donación,5,kilos,true,Pedro Medina,
+Aceite de oliva,Prensado en frío,intercambio,2,kilos,true,Lola Sonseca,

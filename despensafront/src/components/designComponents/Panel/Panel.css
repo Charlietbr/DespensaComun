@@ -1,0 +1,117 @@
+.panel{
+    background-color: transparent;
+    padding: 1em;
+    width: 90%;
+    gap: 1em;
+
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+
+    justify-content: center;
+    align-items: center;
+
+
+    border-radius: var(--app-border-radius);
+}
+
+.panel header{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: start;
+    align-items: start;
+    background-color: var(--box-bg-color);
+    border-radius: var(--app-border-radius);
+    padding: 10px 0px 10px 20px;
+}
+
+
+.panelName{
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+
+}
+
+
+.panelInfo{
+    height: 120px;
+    display: flex;
+    flex-direction: column;
+    padding: 5px 15px 0px 15px;
+    gap: 15px;
+
+}
+
+.panelName p{
+    padding-top: 5px;
+    font-family: var(--font-italic);
+    opacity: 0.7;
+}
+
+
+
+.panelList{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    width: 100%;
+    border-radius: var(--app-border-radius);
+
+    padding: 10px 0px 10px 0px;
+}
+
+.panelList header{
+    display: flex;
+    justify-content: center;
+    padding-right: 10px;
+    width: 100%;
+    background-color: transparent;
+
+}
+
+.panel-search-bar{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.panel-search-bar input{
+    width: 70%;
+    height: 2.5em;
+    padding-left: 20px;
+    border-radius: 30px;
+    font-size: large;
+    
+    background-color: var(--box-bg-color);
+    border: none;
+}
+
+.panelList .card{
+    width: 90%;
+    max-width: 450px;
+}
+
+.line-buttons{
+    width: fit-content;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 5px;
+    margin: 10px;
+    border: 1px solid var(--dark-color);
+    border-radius: var(--app-border-radius);
+    transition: var(--transition-global);
+}
+
+.line-buttons:hover{
+    box-shadow: var(--button-shadow);
+
+}
+
+.line-link{
+    cursor: pointer;
+    color: var(--line-link-color);
+    font-weight: 800;
+}

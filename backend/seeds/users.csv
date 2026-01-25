@@ -1,0 +1,13 @@
+name,email,locationName,locationLat,locationLng,role,bio
+Roy Good,roy@mail.com,Collado Mediano,"40.4168","-3.7038",admin,Admin de la plataforma
+María del Monte,maria@mail.com,Ventas,"40.4383","-3.6622",user,Jubilada y con dolor de espalda
+Carlos Jean,carlos@mail.com,Usera,"40.3882","-3.7004",user,Terrateniente y amigo de sus amigos
+Lucía del Montón,lucia@mail.com,Malasaña,"40.4259","-3.7059",user,Huerto urbano en terraza ilegal
+Juan Villalba,juanv@mail.com,Collado Villalba,"40.6433","-3.9912",user,Tengo un huerto cerca de la sierra
+Paco Tébar,paco@mail.com,Tébar (Cuenca),"39.4967","-2.1644",user,Miel y ajo de la zona
+Elena Cases,elena@mail.com,Les Cases d'Alcanar,"40.5528","0.5283",user,Cítricos directos del Delta
+Ricardo Valde,ricardo@mail.com,Valdemoro,"40.1908","-3.6775",user,Aficionado a las hortalizas
+Sofía Escorial,sofia@mail.com,San Lorenzo del Escorial,"40.5925","-4.1444",user,Comparto lo que me sobra
+Miguel Naval,miguel@mail.com,Navalcarnero,"40.2882","-4.0150",user,Vinos y huerta tradicional
+Lola Sonseca,lola@mail.com,Sonseca,"39.6781","-3.9733",user,Mazapanes y productos locales
+Pedro Medina,pedro@mail.com,Medina de Rioseco,"41.8842","-5.0441",user,Cerealista reconvertido

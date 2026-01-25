@@ -1,0 +1,18 @@
+.main-frame{
+
+    padding: 1em;
+    height: 90%;
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: start;
+    gap: 20px;
+
+    overflow: auto;
+
+    background: linear-gradient(rgba(144, 104, 86, 0.147), rgba(0, 157, 255, 0.066), rgba(82, 135, 86, 0.21));
+
+}
+
