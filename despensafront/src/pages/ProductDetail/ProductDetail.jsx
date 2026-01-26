@@ -10,6 +10,7 @@ import ChatSendMessageButton from "../../components/MainComponents/ChatSendMessa
 import Thumbnail from "../../components/designComponents/Thumbnail/Thumbnail";
 import './ProductDetail.css';
 import TransactionForm from "../../components/MainComponents/TransactionForm/TransactionForm";
+import ProductEditForm from "../../components/MainComponents/ProductEditForm/ProductEditForm"
 
 const ProductDetail = () => {
     const { user, fetchUserResource } = useContext(AuthContext);
@@ -17,9 +18,11 @@ const ProductDetail = () => {
     const navigate = useNavigate();
     
     const [showTransactionForm, setShowTransactionForm] = useState(false);
+    const [showEditForm, setShowEditForm] = useState(false);
     const [product, setProduct] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState("");
+
 
     const fetchProduct = async () => {
         setLoading(true);
@@ -80,6 +83,7 @@ const ProductDetail = () => {
         <li className="line-info"><strong>Categoría:</strong> {product.category}</li>
         <li className="line-info"><strong>Estado:</strong> {product.status === 'available' ? 'Disponible' : 'Reservado'}</li>
         <li className="line-info"><strong>Cantidad:</strong> {product.quantity} {product.unit}</li>
+        <li className="line-info"><strong>Ubicación:</strong> {product.locationName}</li>
         {product.estimatedHarvestDate && (
           <li className="line-info">
             <strong>Fecha estimada:</strong> {new Date(product.estimatedHarvestDate).toLocaleDateString()}
@@ -141,9 +145,22 @@ const ProductDetail = () => {
               }
             <div>
               <p style={{padding: "15px 5px 5px 5px", fontSize: "smaller"}}>Opciones de administrador</p>
-              <Button className="button xs" onClick={() => navigate(`/products/edit/${id}`)}>
+              <Button className="button xs" onClick={() => (setShowEditForm(true))}>
                 Editar Producto
               </Button>
+
+              {showEditForm && (
+                <ProductEditForm
+                  product={product}
+                  onUpdated={() => {
+                  fetchProduct();
+                  setShowEditForm(false);
+                  }}
+                />
+              )}
+
+
+
               <Button className="button xs exit" onClick={handleDelete}>
                 Eliminar de la despensa
               </Button>

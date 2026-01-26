@@ -14,11 +14,27 @@ import transactionRoutes from "./src/api/v1/routes/transactionRoutes.js";
 import userRoutes from "./src/api/v1/routes/userRoutes.js";
 import conversationRoutes from "./src/api/v1/routes/conversationRoutes.js";
 
+const allowedOrigins = [
+  "https://despensa-comun.vercel.app",
+  "http://localhost:5173"
+];
 
 const app = express();
 app.use(express.json());
+// app.use(cors({
+//   origin: "https://despensa-comun.vercel.app",
+//   methods: "GET,POST,PUT,DELETE",
+//   credentials: true
+// }));
+
 app.use(cors({
-  origin: "https://despensa-comun.vercel.app",
+  origin: function (origin, callback) {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error("Error de CORS: origen no permitido"));
+    }
+  },
   methods: "GET,POST,PUT,DELETE",
   credentials: true
 }));

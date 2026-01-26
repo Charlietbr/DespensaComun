@@ -1,7 +1,7 @@
 .chat-button-container{
     position: fixed;
-    top: 120px;
-    right:85px;
+    top: 70px;
+    right:55px;
     display: flex;
     justify-content: center;
     align-items: center;

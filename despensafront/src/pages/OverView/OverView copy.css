@@ -72,26 +72,17 @@
 }
 
 
-/* .userCategories{
+.userCategories{
     width: 100%;
     height: 78%;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-    justify-content: center;
     gap: 20px;
+
     width: 100%;
+
     border-radius: var(--app-border-radius);
-    padding: 10px 0px 10px 0px;
-} */
-.userCategories{
-    width: 100%;
-    height: 78%;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
-    width: 100%;
-    border-radius: var(--app-border-radius);
+    /* border: var(--section-border); */
     padding: 10px 0px 10px 0px;
 }
 

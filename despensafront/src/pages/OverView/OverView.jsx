@@ -12,6 +12,7 @@ import Thumbnail from '../../components/designComponents/Thumbnail/Thumbnail.jsx
 import ChatSendMessageButton from '../../components/MainComponents/ChatSendMessageButton/ChatSendMessageButton.jsx';
 import FavoriteSetButton from '../../components/MainComponents/FavoriteSetButton/FavoriteSetButton.jsx';
 import './OverView.css'
+import Panel from '../../components/designComponents/Panel/Panel.jsx';
 
 
 const OverView = () => {
@@ -94,37 +95,64 @@ const OverView = () => {
   if (loading) return <p>Cargando datos...</p>;
 
   return (
+
+    <Panel 
+      category='users'
+      user={user}
+      title={user.name}
+      subtitle={user.role === "admin" && `Administrador/ ${user.bio}`}
+      info={`⭐️ ${user.rating} (${user.numReviews} opiniones)`}
+      image={user.profileImage.url !== "" ? user.profileImage.url : defaultProfileImage}
+
+    >
     <div className="overview">
-          <header>
-            <div className='overviewUser' >
-                {user.profileImage.url === "" ? (
-                  <img className='profileImageSmall' src={defaultProfileImage} alt="Foto de usuario" />
-                ) : (
-                  <img className='profileImageSmall' src={ user.profileImage.url } alt={user.name} />
-                )}
+                {/* <header>
+                  <div className='overviewUser' >
+                  {user.profileImage.url === "" ? (
+                    <img className='profileImageSmall' src={defaultProfileImage} alt="Foto de usuario" />
+                    ) : (
+                      <img className='profileImageSmall' src={ user.profileImage.url } alt={user.name} />
+                      )}
+                      
+                      <h3>{user.name}</h3>
+                      
+                      </div>
+                      <div className='overviewUserInfo'>
+                      { user.role === "admin" && <p>Administrador</p> }
+                      <p>Miembro desde: {(user.createdAt.split("T")[0]).split("-")[2]}/{(user.createdAt.split("T")[0]).split("-")[1]}/{(user.createdAt.split("T")[0]).split("-")[0]}</p>
+                      {user.location !== "" && <p> {user.location} </p> || <p>Ubicación pendiente...</p> } 
+                      {user.bio !== "" && <p> {user.bio} </p> || <p>Biografía pendiente...</p> } 
+                      <p>⭐️ {user.rating} ({user.numReviews} opiniones)</p>
+                      <ul>
+                      <li>
+                      <Link to='/Home' >Editar perfil</Link>
+                      </li>
+                      <li>|</li>
+                      <li>
+                      <p style={{ cursor: 'pointer' }} onClick={handleLogout}>Cerrar Sesión</p>
+                      </li>
+                      </ul>
+                      
+                      </div>
+                      
+                </header> */}
 
-                <h3>{user.name}</h3>
+                  <div className='overviewUserInfo'>
 
-            </div>
-            <div className='overviewUserInfo'>
-              { user.role === "admin" && <p>Administrador</p> }
-              <p>Miembro desde: {(user.createdAt.split("T")[0]).split("-")[2]}/{(user.createdAt.split("T")[0]).split("-")[1]}/{(user.createdAt.split("T")[0]).split("-")[0]}</p>
-              {user.location !== "" && <p> {user.location} </p> || <p>Ubicación pendiente...</p> } 
-              {user.bio !== "" && <p> {user.bio} </p> || <p>Biografía pendiente...</p> } 
-              <p>⭐️ {user.rating} ({user.numReviews} opiniones)</p>
-              <ul>
-                  <li>
-                    <Link to='/Home' >Editar perfil</Link>
-                  </li>
-                  <li>|</li>
-                  <li>
-                    <p style={{ cursor: 'pointer' }} onClick={handleLogout}>Cerrar Sesión</p>
-                  </li>
-              </ul>
+                    <ul>
+                        <li>
+                          <Link to='/Home' >Editar perfil</Link>
+                        </li>
+                        <li>|</li>
+                        <li>
+                          <p style={{ cursor: 'pointer' }} onClick={handleLogout}>Cerrar Sesión</p>
+                        </li>
+                    </ul>
+      
+                  </div>
+      
 
-            </div>
 
-          </header>
 
       <section className={`userCategories`} >
 
@@ -325,6 +353,8 @@ const OverView = () => {
 
       </section>
     </div>
+
+    </Panel>
 
   );
 };

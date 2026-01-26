@@ -49,7 +49,7 @@ backend/
 
 ### 2. Instalación y Ejecución del Proyecto
 
-        git clone XXXXXXXXXXX
+        git clone https://github.com/Charlietbr/DespensaComun.git
 
 - ### Instalar dependencias
 

@@ -65,6 +65,8 @@ body{
     --transition-global: 0.3s ease-in-out;
     --scaling-global: 1.06;
 
+    --media-query-limit: 500px;
+
 
 
 
