@@ -144,7 +144,7 @@ const ProductDetail = () => {
             </div>
               }
             <div>
-              <p style={{padding: "15px 5px 5px 5px", fontSize: "smaller"}}>Opciones de administrador</p>
+              <p style={{padding: "15px 5px 5px 5px", fontSize: "smaller"}}>Opciones disponibles</p>
               <Button className="button xs" onClick={() => (setShowEditForm(true))}>
                 Editar Producto
               </Button>

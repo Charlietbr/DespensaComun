@@ -118,6 +118,7 @@
 
 @media screen and (max-width: 500px) {
     .panel{
+
     background-color: transparent;
     padding: 0;
     width: 100%;
@@ -147,14 +148,6 @@
 }
 
 
-.panelName{
-    display: flex;
-    flex-direction: column;
-    align-items: start;
-
-}
-
-
 .panelInfo{
     height: 120px;
     display: flex;
@@ -169,8 +162,6 @@
     font-family: var(--font-italic);
     opacity: 0.7;
 }
-
-
 
 .panelList{
     display: flex;
@@ -191,11 +182,6 @@
 
 }
 
-.panel-search-bar{
-    width: 100%;
-    display: flex;
-    justify-content: center;
-}
 .panel-search-bar input{
     width: 90%;
     height: 2.5em;
@@ -205,11 +191,6 @@
     
     background-color: var(--box-bg-color);
     border: none;
-}
-
-.panelList .card{
-    width: 100%;
-    max-width: 450px;
 }
 
 .line-buttons{

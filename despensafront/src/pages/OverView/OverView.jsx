@@ -106,36 +106,7 @@ const OverView = () => {
 
     >
     <div className="overview">
-                {/* <header>
-                  <div className='overviewUser' >
-                  {user.profileImage.url === "" ? (
-                    <img className='profileImageSmall' src={defaultProfileImage} alt="Foto de usuario" />
-                    ) : (
-                      <img className='profileImageSmall' src={ user.profileImage.url } alt={user.name} />
-                      )}
-                      
-                      <h3>{user.name}</h3>
-                      
-                      </div>
-                      <div className='overviewUserInfo'>
-                      { user.role === "admin" && <p>Administrador</p> }
-                      <p>Miembro desde: {(user.createdAt.split("T")[0]).split("-")[2]}/{(user.createdAt.split("T")[0]).split("-")[1]}/{(user.createdAt.split("T")[0]).split("-")[0]}</p>
-                      {user.location !== "" && <p> {user.location} </p> || <p>Ubicación pendiente...</p> } 
-                      {user.bio !== "" && <p> {user.bio} </p> || <p>Biografía pendiente...</p> } 
-                      <p>⭐️ {user.rating} ({user.numReviews} opiniones)</p>
-                      <ul>
-                      <li>
-                      <Link to='/Home' >Editar perfil</Link>
-                      </li>
-                      <li>|</li>
-                      <li>
-                      <p style={{ cursor: 'pointer' }} onClick={handleLogout}>Cerrar Sesión</p>
-                      </li>
-                      </ul>
-                      
-                      </div>
-                      
-                </header> */}
+
 
                   <div className='overviewUserInfo'>
 
@@ -292,35 +263,9 @@ const OverView = () => {
             </Card>
 
 
-            <Card title="Valoraciones recibidas"
-                  category="users"
-                  style={{ cursor: 'pointer', maxHeight: '300px' }}>
-                    
-                      <div style={{ textAlign: 'center', padding: '10px' }}>
-                        <h2 style={{ margin: 0 }}>⭐️ {user.rating}</h2>
-                        <p className="subtitle">{user.numReviews} valoraciones recibidas</p>
-                      </div>
-                      <ul className="feedback-list">
-                        {memoizedReviews?.length > 0 ? (
-                          memoizedReviews.map((t) => {
-                            const f = t.feedback.find(rev => {
-                              const revId = rev.reviewer?._id || rev.reviewer;
-                              return revId.toString() !== user._id.toString();
-                            });
-                            if (!f) return null;
-                            return (
-                              <li key={t._id} >
-                                <strong>{"★".repeat(f.rating)}</strong> "{f.comment}"
-                              </li>
-                            );
-                          })
-                        ) : (
-                          <p style={{ textAlign: 'center', padding: '10px' }}>Aún no tienes opiniones.</p>
-                        )}
-                      </ul>
-            </Card>         
+     
 
-            {/* //* Cards de ADMINISTRADOR */}
+            {/* //* Cards de usuario - ADMINISTRADOR */}
 
             { user?.role === "admin" && (
                 <Card title='Usuarios | Panel de administrador'
@@ -350,6 +295,35 @@ const OverView = () => {
 
                 </Card>
               ) }
+
+
+            <Card title="Valoraciones recibidas"
+                  category="users"
+                  style={{ cursor: 'pointer', maxHeight: '300px' }}>
+                    
+                      <div style={{ textAlign: 'center', padding: '10px' }}>
+                        <h2 style={{ margin: 0 }}>⭐️ {user.rating}</h2>
+                        <p className="subtitle">{user.numReviews} valoraciones recibidas</p>
+                      </div>
+                      <ul className="feedback-list">
+                        {memoizedReviews?.length > 0 ? (
+                          memoizedReviews.map((t) => {
+                            const f = t.feedback.find(rev => {
+                              const revId = rev.reviewer?._id || rev.reviewer;
+                              return revId.toString() !== user._id.toString();
+                            });
+                            if (!f) return null;
+                            return (
+                              <li key={t._id} >
+                                <strong>{"★".repeat(f.rating)}</strong> "{f.comment}"
+                              </li>
+                            );
+                          })
+                        ) : (
+                          <p style={{ textAlign: 'center', padding: '10px' }}>Aún no tienes opiniones.</p>
+                        )}
+                      </ul>
+            </Card>    
 
       </section>
     </div>

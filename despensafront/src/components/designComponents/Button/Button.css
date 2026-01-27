@@ -53,8 +53,8 @@ button {
 
 .back-button{
   position: fixed;
-  top: 160px;
-  left: 50px;
+  top: 170px;
+  left: 80px;
   height: 40px;
   width: 40px;
   border-radius: 50%;
@@ -73,4 +73,11 @@ button {
 .back-button:hover{
   scale: var(--scaling-global);
   rotate: var(--button-rotation);
+}
+
+@media screen and (max-width:500px) {
+  .back-button{
+    top:55px;
+    left: 0px;
+  }
 }

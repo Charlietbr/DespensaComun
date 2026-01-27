@@ -54,23 +54,18 @@ const Welcome = (props) => {
 
         <div id='welcome-content'>
             <section id='welcome-info'>
-              <Card title={`¡Hola de nuevo${user ? `, ${user.name}!` : "!"}`} 
+              <Card title={`Productos publicados: ${products.length}`} 
                     style={{backgroundColor: "transparent",
                       color:"var(--light-color)"
                     }}>
            
-                { user ? (
+                { !user && (
                   <>
                     <p>
-                      Ve a tu tablón para revisar tus productos e intercambios o busca productos directamente en el mapa.
+                      Inicia sesión o crea una cuenta para acceder a los productos publicados.
                     </p>
-                    <p>¡Seguro que muy cerca tienes productores y consumidores con los que conectar!</p>
+                    <p>¡Seguro que muy cerca tienes productores y consumidores con los que conectar y crear una comunidad sostenible!</p>
                   </>
-                    ) : (
-                    <>
-                      <p>Accede o crea tu cuenta y empieza a conectar con productores y consumidores de tu zona. </p>
-                      <p>¡Hagamos juntos una comunidad sostenible!</p>
-                    </>
                     )}
 
 
@@ -85,6 +80,7 @@ const Welcome = (props) => {
                 mapLat={origin.mapLat} 
                 mapLng={origin.mapLng}
                 products={products}  
+                mapHeight={"450px"}
                 />
             </section>
    

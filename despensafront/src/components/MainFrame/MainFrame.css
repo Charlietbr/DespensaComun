@@ -18,6 +18,12 @@
 
 @media screen and (max-width: 500px) {
     .main-frame{
-        padding: 0;
+        display: flex;
+        position: fixed;
+        top: 75px;
+        height: 99%;
+        width: 100%;
+        overflow-x: hidden;
+
     }
 }

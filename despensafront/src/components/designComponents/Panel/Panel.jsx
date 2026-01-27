@@ -31,7 +31,7 @@ const Panel = ({
 
         {backButton && (
           <div>
-            <div className="back-button" onClick={() => navigate("/Overview")}>
+            <div className="back-button" onClick={() => navigate(-1)}>
               ←
             </div>
           </div>

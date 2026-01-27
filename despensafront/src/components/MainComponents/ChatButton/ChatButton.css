@@ -1,7 +1,7 @@
 .chat-button-container{
     position: fixed;
-    top: 70px;
-    right:55px;
+    top: 100px;
+    right:85px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -27,3 +27,11 @@
     background-color: rgb(154, 16, 16);
 }
 
+@media screen and (max-width: 500px) {
+    .chat-button-container{
+        top:55px;
+        right: 00px;
+        height: 40px;
+        width: 40px;
+    }
+}
