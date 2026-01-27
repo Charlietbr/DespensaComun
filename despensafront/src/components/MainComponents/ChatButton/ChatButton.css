@@ -29,9 +29,9 @@
 
 @media screen and (max-width: 500px) {
     .chat-button-container{
-        top:65px;
-        right: 00px;
-        height: 40px;
-        width: 40px;
+        top:82px;
+        right: 10px;
+        height: 45px;
+        width: 45px;
     }
 }
