@@ -16,17 +16,11 @@ https://despensa-comun.vercel.app
 ## 1.Estructura de PÁGINAS
 
 ### Welcome
-    <p>
     Es la página de acceso. Contiene el enlace a Home para acceder o crear una cuenta y un mapa de los productos que se encuentran publicados que, sólo en casa de que haya un usuario logueado, permitirán el acceso a la ficha de cada producto para poder conocer sus detalles o iniciar una transacción.
-    </p>
 ### Home
-    <p>
     Es donde se alojan los formularios de usuario: LoginForm, CreateUserForm o EditUserForm. En caso de no haber usuario logueado aparecerá el formulario de login con un link al de creación de usuario por si aún no ha sido creado (CreateUserForm tiene el link a login por si se trata de un usuario con cuenta creada que quiere acceder).
-    </p>
 ### OverView
-    <p>
     Una vez que se ha accedido a la plataforma, OverView ofrece información del usuario logueado, acceso a la edición del perfil o cierre de sesión y una serie de cards con información reducida sobre los productos, grupos, transacciones, valoraciones y, en el caso de los administradores, el listado de usuarios. Al pulsar sobre cualquiera de ellos navegamos a la página correspondiente que muestra la información extendida y el acceso a los detalles.
-    </p>
 ### Users (sólo para administradores)
     Presenta la barra de búsqueda de usuarios y el listado de los mismos.
 ### UserDetail
@@ -89,19 +83,9 @@ https://despensa-comun.vercel.app
 
 
 
-
-
-
-
-
-
-
-
-
 # LA DESPENSA COMÚN - BACKEND
 
  https://despensacomun.onrender.com 
-
  
  El servidor TARDA 30 SEGUNDOS EN DESPERTAR por primera vez si ha estado inactivo.
 
