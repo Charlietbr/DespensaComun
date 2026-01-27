@@ -8,6 +8,7 @@
     justify-content: center;
     align-items: center;
     padding: 00px;
+
     z-index: 999;
     
 
@@ -118,7 +119,8 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    padding: 00px;
+    padding: 0px;
+    margin: 0px;
     font-size: smaller;
     
 

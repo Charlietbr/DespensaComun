@@ -1,4 +1,5 @@
 .panel{
+
     background-color: transparent;
     padding: 1em;
     width: 100%;
@@ -118,7 +119,8 @@
 
 @media screen and (max-width: 500px) {
     .panel{
-
+    position: relative;
+    top: 0px;
     background-color: transparent;
     padding: 0;
     width: 100%;

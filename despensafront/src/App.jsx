@@ -11,7 +11,6 @@ import Home from './pages/Home/Home.jsx';
 import Groups from './pages/Groups/Groups.jsx';
 import Products from './pages/Products/Products.jsx';
 import ProductDetail from './pages/ProductDetail/ProductDetail.jsx'
-import Messages from './pages/Messages/Messages.jsx';
 import Users from './pages/Users/Users.jsx';
 import Favorites from './pages/Favorites/Favorites.jsx';
 import Transactions from './pages/Transactions/Transactions.jsx';
@@ -43,7 +42,7 @@ function App() {
           <Route path="/home" element={<Home />} />
           <Route path="/groups" element={<Groups />} />
           <Route path="/products" element={<Products />} />
-          <Route path="/messages" element={<Messages />} />
+
           <Route path="/users" element={<Users />} />
           <Route path="/favorites" element={<Favorites />} />
           <Route path="/transactions" element={<Transactions />} />

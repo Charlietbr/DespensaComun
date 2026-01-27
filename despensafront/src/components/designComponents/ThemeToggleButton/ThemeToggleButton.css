@@ -9,7 +9,7 @@
   box-shadow: var(--button-shadow);
   border: var(--button-border);
   transition: var(--transition-global);
-  z-index: 99;
+  z-index: 999;
 }
 
 .theme-toggle-btn:hover{
@@ -35,6 +35,6 @@
     height: 45px;
     width: 45px;
     padding: auto;
-    flex-shrink: 0;
+    
   }
 }
