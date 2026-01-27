@@ -54,7 +54,7 @@ const Welcome = (props) => {
 
         <div id='welcome-content'>
             <section id='welcome-info'>
-              <Card title={`Productos publicados: ${products.length}`} 
+              <Card title={user ? (`Productos publicados: ${products.length}`) : ("")} 
                     style={{backgroundColor: "transparent",
                       color:"var(--light-color)"
                     }}>
@@ -62,7 +62,7 @@ const Welcome = (props) => {
                 { !user && (
                   <>
                     <p>
-                      Inicia sesión o crea una cuenta para acceder a los productos publicados.
+                      Inicia sesión o crea una cuenta para acceder a los productos publicados para intercambio o donación.
                     </p>
                     <p>¡Seguro que muy cerca tienes productores y consumidores con los que conectar y crear una comunidad sostenible!</p>
                   </>

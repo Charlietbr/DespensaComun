@@ -1,7 +1,7 @@
 .chat-button-container{
     position: fixed;
-    top: 100px;
-    right:85px;
+    top: 150px;
+    right: 8.5%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -9,6 +9,7 @@
     height: 50px;
     width: 50px;
     border-radius: 50%;
+
     border: var(--button-border);
     transition: var(--transition-global);
     cursor: pointer;

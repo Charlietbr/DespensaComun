@@ -52,11 +52,11 @@ button {
 }
 
 .back-button{
-  position: absolute;
-  top: 5px;
-  left: 50px;
-  height: 40px;
-  width: 40px;
+  position: fixed;
+  top: 150px;
+  left: 8.5%;
+  height: 50px;
+  width: 50px;
   border-radius: 50%;
 
   display: flex;
@@ -79,7 +79,9 @@ button {
 @media screen and (max-width:500px) {
   .back-button{
     position: absolute;
-    top:-10px;
-    left: -10px;
+    top:-13px;
+    left: -7px;
+    height: 45px;
+    width: 45px;
   }
 }

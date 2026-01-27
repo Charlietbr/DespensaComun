@@ -1,5 +1,9 @@
 # LA DESPENSA COMÚN - BACKEND
 
+ https://despensacomun.onrender.com 
+ 
+ El servidor TARDA 30 SEGUNDOS EN DESPERTAR por primera vez si ha estado inactivo.
+
 
 ### 0. Presentación
 

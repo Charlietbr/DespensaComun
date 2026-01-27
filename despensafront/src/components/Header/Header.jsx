@@ -23,44 +23,34 @@ const Header = () => {
   return (
     <header className={`header ${mode}`}>
 
-        <div className={`logo-container ${mode}`} onClick={() => {navigate("/")}}>
-          <img src={logoPera} alt="Logo de Despensa Común"/>
-        </div>
 
-        <ul>
+        <nav className='main-nav'>
+            <div className={`logo-container ${mode}`} onClick={() => {navigate("/")}}>
+              <img src={logoPera} alt="Logo de Despensa Común"/>
+            </div>
 
-            <li>
-              <Link to="/">
-                <img id='title-container' src={mode === "dark" ? whiteLogo : blueLogo} alt="Título La despensa común" />
-              </Link>
-            </li>
-
-            <li>
-              <div className='userIO' >
-                    {user ? (
-                      <>
-                        <div> 
-                          <NavLink to="/OverView">
-                              {({isActive}) => isActive ? `${user.name}` : `·· Ver tu tablón ··`}
-                          </NavLink>
-                        </div>
-                      </>
-                    ) : (
-                      <div> <Link to='/Home'>·· Entrar ··</Link></div>
-                    )}
-              </div>
-            </li>            
-
-        </ul>
-
-        <ChatButton/>
-
-        <div className='theme-button-container'>
-            <li>
+            <div className='title-container'>
+              <img src={mode === "dark" ? whiteLogo : blueLogo} alt="Título La despensa común" onClick={()=> navigate("/")}/>
+            </div>
+         
+            <div className='theme-button-container'>
                 <ThemeToggleButton />
-            </li>
-        </div>
+            </div>
 
+        </nav>
+
+        <div className='userIO' >
+            {user ? (
+               <>
+                    <NavLink to="/OverView">
+                      {({isActive}) => isActive ? `${user.name}` : `·· Ver tu tablón ··`}
+                    </NavLink>
+                </>
+              ) : (
+                <div> <Link to='/Home'>·· Entrar ··</Link></div>
+              )}
+                </div>
+        <ChatButton/>
     </header>
   );
 };

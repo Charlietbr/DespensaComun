@@ -1,18 +1,13 @@
 .header{
-    position: fixed;
-    left: 50%;
-    transform: translateX(-50%);
+
     width: 100%;
     height: 110px;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 00px;
-
-    z-index: 999;
-    
-
+    padding: 10px;
+    background-color: rgb(46, 94, 78);
 }
 
 .header.light{
@@ -25,13 +20,17 @@
     color: var(--dark-scheme-font-color);
 }
 
+.main-nav{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: nowrap;
+}
+
 .logo-container{
-    position: absolute;
-    top: 43px;
-    left: 40px;
     height: 60px;
     width: 60px;
-
     display: flex;
     justify-content: center;
     align-items: center;
@@ -39,9 +38,7 @@
     border: var(--button-border);
     border-radius: 50%;
     transition: var(--transition-global);
-    flex-shrink: 0;
-    background-color: aqua;
-    z-index: 9999;
+
 }
 
 .logo-container.light{
@@ -62,118 +59,46 @@
     rotate: var(--button-rotation);
 }
 
-
-
-.header ul {
-    width: 50%;
-    height: 100%;
+.title-container{
     display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
     align-items: center;
-    padding: 0;
-
+    justify-content: center;
+    height: 100%;
+    width: 70%;
+    cursor: pointer;
 
 }
+.title-container img{
+    width: 100%;
+    max-width: 500px;
+}
+
 
 .userIO {
- 
+    flex: 1 1 100%;
     cursor: pointer;
 
 }
 
 .userIO li{
+    width: 30%;
     font-size: large;
     text-shadow: var(--button-shadow);
 }
 
 .theme-button-container{
-    position: fixed;
-    right: 30px;
-    top: 50px;
-    height: 4em;
-   
+    height: 60px;
+    width: 60px;
     display: flex;
     justify-content: center;
     align-items: center;
-}
-
-
-.headerProfileImage{
-    height: 40px;
+    box-shadow: var(--button-shadow);
+    border: var(--button-border);
     border-radius: 50%;
-}
-
-
-#title-container{
-    width: 100%;
-    max-width: 400px;
-
-}
-
-@media screen and (max-width: 500px) {
-    .header{
-    width: 100%;
-    height: 80px;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    padding: 0px;
-    margin: 0px;
-    font-size: smaller;
-    
-
-}
-
-.header.light{
-    background-color: var(--light-scheme-bg-color);
-    color: var(--light-scheme-font-color);
-}
-
-.header.dark{
-    background-color: var(--dark-scheme-bg-color);
-    color: var(--dark-scheme-font-color);
-}
-
-.logo-container{
-    position: fixed;
-    top: 15px;
-    left: 5px;
-    height: 45px;
-    width: 45px;
-
-
-}
-
-.logo-container.light{
-    background-color: var(--light-color);
-
-}
-.logo-container.dark{
-    background-color: var(--dark-color);
-}
-
-.logo-container img{
-    width: 20px;
-    height: 20px;
+    transition: var(--transition-global);
 }
 
 
 
 
-.theme-button-container{
-    position: fixed;
-    right: 5px;
-    top: 12px;
-    height: 2.5em;
-   
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 98;
-}
 
-
-}
