@@ -28,15 +28,15 @@ El objetivo de este proyecto es realizar una prueba completa de aplicación web 
 
 La página **Welcome** de la aplicación nos muestra un mapa en el que se muestran una serie de productos disponibles. 
 
-![alt text](image-3.png)
+![alt text](docImages/image-3.png)
 
 Para poder acceder tanto a su información como a las funciones de interacción con la comunidad será necesario iniciar sesión desde *Acceso* en la parte superior de esta misma página.
 
-![alt text](image-4.png)![alt text](image-5.png)
+![alt text](docImages/image-4.png)![alt text](docImages/image-5.png)
 
 Una vez iniciada la sesión, ya podemos acceder a la información de los productos del mapa y a las diferentes secciones, bien desde los accesos directos de la navegación superior o desde los propios Cards que nos resumen cada una de las categorías:
 
-![alt text](image-2.png)
+![alt text](docImages/image-2.png)
 
 * ### Editar perfil/ cerrar sesión.
 * ### Productos.
@@ -53,7 +53,7 @@ Una vez iniciada la sesión, ya podemos acceder a la información de los product
 * ### Favoritos.
  Muestran tarjetas con los productos, grupos o usuarios que hayamos marcado como favoritos para localizarlos más cómodamente. Para guardar o descartar un favorito sólo hay que pulsar sobre el corazón cuando este se encuentre disponible.
 
-![alt text](image-7.png)
+![alt text](docImages/image-7.png)
 
 * ### Trueques.
   * Solicitudes para ti. Son las solicitudes de intercambio o donación de otros usuarios que desean tus productos. Puedes aceptarlas o rechazarlas.
@@ -62,8 +62,8 @@ Una vez iniciada la sesión, ya podemos acceder a la información de los product
   * Sólo pueden hacerse al finalizar una transacción. Es el momento de valorar la transacción y al usuario, tanto si ha finalizado correctamente o ha sido cancelada.
 
 * Chat. Accesible mediante el botón de chat desde cualquier punto de la aplicación (para buscar todas las conversaciones) o desde la línea correspondiente a usuarios o grupos (accediendo directamente a la conversación privada o chat de grupo que corresponda). 
-![alt text](image-8.png)
-![alt text](image-9.png)
+![alt text](docImages/image-8.png)
+![alt text](docImages/image-9.png)
 
 
 ## 2. Liberías utilizadas
@@ -73,13 +73,13 @@ Una vez iniciada la sesión, ya podemos acceder a la información de los product
 
 Es el motor de los mapas que se muestran en las páginas de bienvenida y detalle de usuario. Renderiza un mapa interactivo que coloca marcadores en la ubicación de productos o usuarios con popups que muestran información de los mismos según el caso y el contexto de autenticación.
 
-![Mapa de productos disponibles](image.png)
+![Mapa de productos disponibles](docImages/image.png)
 
 ### OpenStreetMap / Nominatim
 
 Aunque no se trata de una librería, es el servicio utilizado para rellenar las búsquedas de Ciudades o Pueblos. Para evitar que el usuario introduzca un string con un nombre en el input, se sugieren coincidencias sobre las que hay que hacer click. Esto asegura que se proporciona un nombre de localización válido y unas coordenadas.
 
-![Búsqueda de localizaciones](image-1.png)
+![Búsqueda de localizaciones](docImages/image-1.png)
 
 
 
