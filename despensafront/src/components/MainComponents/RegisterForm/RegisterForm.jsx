@@ -6,10 +6,14 @@ import LocationPicker from '../LocationPicker/LocationPicker.jsx';
 import { AuthContext } from '../../../context/AuthContext.jsx';
 import Thumbnail from '../../designComponents/Thumbnail/Thumbnail.jsx';
 import { defaultProfileImage } from '../../../config/constants.js';
+import { useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2';
 
 const RegisterForm = () => {
 
+  const { login } = useContext(AuthContext);
   const { user, logout, token, updateUserContext } = useContext(AuthContext);
+  const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
     name: "",
@@ -88,7 +92,7 @@ const uploadToCloudinary = async (file) => {
 
     try {
 
-      let profileImageObj = { url: "", public_id: "" };
+   
 
       if (!formData.locationLat || !formData.locationLng) {
         throw new Error("Debes seleccionar una población válida de la lista.");
@@ -112,29 +116,31 @@ const uploadToCloudinary = async (file) => {
 
       if (!res.ok) throw new Error(data.message || "Error al registrar usuario");
 
-      setMessage(`Usuario creado correctamente: ${data.user?.name || "usuario"}`);
+        if (data.token && data.user) {
+               
+                login(data.user, data.token); 
+                
+                await Swal.fire({
+                  title: '¡Bienvenido!',
+                  text: 'Cuenta creada con éxito. Redirigiendo...',
+                  icon: 'success',
+                  timer: 3000,
+                  showConfirmButton: false,
+                  heightAuto: false
+                });
 
-      setFormData({
-        name: "",
-        email: "",
-        password: "",
-        locationName: "",
-        locationLat: "",
-        locationLng: "",
-        bio: ""
-      });
-      
-      setImageFile(null);
-      setLoading(false);
+                navigate("/overview");
+        }
     } catch (error) {
       console.error(error);
-      setMessage(`Error: ${error.message}`);
+      Swal.fire({
+        title: 'Error',
+        text: error.message,
+        icon: 'error',
+        heightAuto: false
+      });
     
     } finally {
- 
-      setLoading(false);
-      
-      setImageFile(null);
       setLoading(false);
     }
   };

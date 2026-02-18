@@ -25,7 +25,7 @@ router.post("/login", loginUser);
 router.get("/", authMiddleware, getAllUsers);
 router.get("/:id", authMiddleware, getUserById);
 router.put("/:id", authMiddleware, uploadImage, uploadToCloudinary, updateUser);
-router.put("/:id/role", authMiddleware, updateUserRole);
+router.patch("/:id/role/:userId", authMiddleware, updateUserRole);
 router.delete("/:id", authMiddleware, deleteUser);
 
 export default router;

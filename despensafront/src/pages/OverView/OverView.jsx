@@ -299,7 +299,7 @@ const OverView = () => {
 
             <Card title="Valoraciones recibidas"
                   category="users"
-                  style={{ cursor: 'pointer', maxHeight: '300px' }}>
+                  style={{ maxHeight: '300px' }}>
                     
                       <div style={{ textAlign: 'center', padding: '10px' }}>
                         <h2 style={{ margin: 0 }}>⭐️ {user.rating}</h2>

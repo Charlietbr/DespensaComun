@@ -4,6 +4,9 @@ import { AuthContext } from '../../../context/AuthContext.jsx';
 import Button from '../../designComponents/Button/Button.jsx';
 import Card from '../../designComponents/Card/Card.jsx';
 import LocationPicker from '../LocationPicker/LocationPicker.jsx';
+import Thumbnail from '../../designComponents/Thumbnail/Thumbnail.jsx';
+import '../Form.css';
+import { defaultGroupImage } from '../../../config/constants.js';
 
 const ProductCreateForm = ({ onCreated }) => {
   const { user, token, fetchUserResource } = useContext(AuthContext);
@@ -164,6 +167,10 @@ const ProductCreateForm = ({ onCreated }) => {
           </li>
 
           <li>
+              <div className='file-upload-container' >
+                <label>Añadir imagen</label>
+                <Thumbnail size="m" src={imageFile ? URL.createObjectURL(imageFile) : defaultGroupImage}/>
+              </div>
             <input type="file" accept="image/*" onChange={handleFileChange} />
           </li>
         </ul>

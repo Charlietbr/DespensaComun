@@ -71,19 +71,25 @@
 .title-container img{
     width: 100%;
     max-width: 500px;
+    padding-top: 10px;
 }
 
 
 .userIO {
     flex: 1 1 100%;
-    cursor: pointer;
+}
 
+.userIO ul{
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
 }
 
 .userIO li{
-    width: 30%;
+    width: fit-content;
     font-size: large;
     text-shadow: var(--button-shadow);
+    padding: 10px;
 }
 
 .theme-button-container{

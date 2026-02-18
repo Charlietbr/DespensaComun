@@ -9,7 +9,7 @@ import LocationPicker from '../LocationPicker/LocationPicker.jsx';
 import Thumbnail from '../../designComponents/Thumbnail/Thumbnail.jsx';
 import { defaultGroupImage } from '../../../config/constants.js';
 
-const GroupCreateForm = (onCancel) => {
+const GroupCreateForm = ({onCancel}) => {
   const { token } = useContext(AuthContext);
   const navigate = useNavigate();
 
@@ -170,7 +170,7 @@ const GroupCreateForm = (onCancel) => {
           </li>
 
               <div className='file-upload-container' >
-                <label>Actualizar imagen</label>
+                <label>Añadir imagen</label>
                 <Thumbnail size="m" src={imageFile ? URL.createObjectURL(imageFile) : defaultGroupImage}/>
               </div>
               <input type="file" accept="image/*" onChange={handleFileChange} />

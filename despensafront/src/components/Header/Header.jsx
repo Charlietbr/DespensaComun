@@ -41,13 +41,35 @@ const Header = () => {
 
         <div className='userIO' >
             {user ? (
-               <>
+               <ul>
+                  <li>
                     <NavLink to="/OverView">
-                      {({isActive}) => isActive ? `${user.name}` : `·· Ver tu tablón ··`}
+                      {({isActive}) => isActive ? `${user.name}` : `Tablón`}
                     </NavLink>
-                </>
+                  </li>
+                  <li>
+                    <NavLink to="/Products">
+                      {`Productos`}
+                    </NavLink>
+                  </li>
+                  <li>
+                    <NavLink to="/Groups">
+                      {`Grupos`}
+                    </NavLink>
+                  </li>
+                  <li>
+                    <NavLink to="/Transactions">
+                      {`Trueques`}
+                    </NavLink>
+                  </li>
+                  <li>
+                    <NavLink to="/Favorites">
+                      {`♥︎`}
+                    </NavLink>
+                  </li>
+                </ul>
               ) : (
-                <div> <Link to='/Home'>·· Entrar ··</Link></div>
+                <div> <Link to='/Home'>·· Acceso ··</Link></div>
               )}
                 </div>
         <ChatButton/>

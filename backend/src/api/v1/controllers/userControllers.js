@@ -51,11 +51,13 @@ export const registerUser = async (req, res) => {
       { expiresIn: "7d" }
     );
 
-    const userSafe = await User.findById(newUser._id).select("-password");
+    const userSafe = newUser.toObject();
+    delete userSafe.password;
 
     return res.status(201).json({
       message: "Usuario creado correctamente.",
-      user: userSafe
+      user: userSafe,
+      token: token
     });
 
   } catch (error) {

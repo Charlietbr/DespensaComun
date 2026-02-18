@@ -4,6 +4,9 @@ import Button from "../../designComponents/Button/Button.jsx";
 import Card from "../../designComponents/Card/Card.jsx";
 import { useNavigate } from "react-router-dom";
 import LocationPicker from "../LocationPicker/LocationPicker.jsx";
+import Thumbnail from "../../designComponents/Thumbnail/Thumbnail.jsx";
+import '../Form.css';
+import Swal from "sweetalert2";
 
 const GroupEditForm = ({ group, onUpdated }) => {
   const { token, user } = useContext(AuthContext);
@@ -109,15 +112,51 @@ const handleSubmit = async (e) => {
 };
 
 
-  const handleDeleteGroup = async () => {
-    if (!window.confirm("¿Eliminar grupo definitivamente?")) return;
+const handleDeleteGroup = async () => {
 
-    await fetch(`${API_URL}/groups/${group._id}`, {
-      method: "DELETE",
-      headers: { Authorization: `Bearer ${token}` },
+    const result = await Swal.fire({
+      title: '¿Eliminar grupo definitivamente?',
+      text: "Esta acción no se puede deshacer y se perderán todos los datos del grupo.",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: 'var(--exit-button-color, #d33)',
+      cancelButtonColor: 'rgb(123, 100, 145)', 
+      confirmButtonText: 'Sí, eliminar grupo',
+      cancelButtonText: 'Cancelar',
+      heightAuto: false
     });
 
-    navigate("/groups");
+    if (result.isConfirmed) {
+      try {
+        const res = await fetch(`${API_URL}/groups/${group._id}`, {
+          method: "DELETE",
+          headers: { Authorization: `Bearer ${token}` },
+        });
+
+        if (!res.ok) throw new Error("Error en la respuesta del servidor");
+
+
+        await Swal.fire({
+          title: '¡Grupo eliminado!',
+          text: 'El grupo ha sido borrado correctamente.',
+          icon: 'success',
+          timer: 1500,
+          showConfirmButton: false,
+          heightAuto: false
+        });
+
+        navigate("/groups");
+      } catch (err) {
+
+        Swal.fire({
+          title: 'Error',
+          text: 'No ha sido posible eliminar el grupo.',
+          icon: 'error',
+          confirmButtonColor: 'rgb(123, 100, 145)',
+          heightAuto: false
+        });
+      }
+    }
   };
 
   return (
@@ -169,7 +208,16 @@ const handleSubmit = async (e) => {
           </li>
           
           <li>
-            <input type="file" onChange={(e) => setImageFile(e.target.files[0])} />
+
+              <div className="file-upload-container">
+                <Thumbnail 
+                  size="m" 
+                  src={imageFile ? URL.createObjectURL(imageFile) : group.image} 
+                />
+
+                <input type="file" onChange={(e) => setImageFile(e.target.files[0])} />
+
+              </div>
           </li>
         </ul>
 

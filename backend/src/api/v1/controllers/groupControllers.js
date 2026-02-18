@@ -6,14 +6,18 @@ import User from "../models/user.js";
 //================================================================
 export const createGroup = async (req, res) => {
   try {
-    const { name, description, location, isPrivate } = req.body;
+    const { name, description, location, isPrivate, image, locationName, locationLat, locationLng } = req.body;
     if (!name) return res.status(400).json({ message: "Es necesario dar un nombre al grupo." });
 
     const newGroup = new Group({
       name,
       description: description || "",
       location: location || "",
+      locationName: locationName || "",
+      locationLat: locationLat || "",
+      locationLng: locationLng || "",
       isPrivate: isPrivate || false,
+      image: image || "",
       creator: req.user.id,
       members: [{ user: req.user.id }],
       moderators: [req.user.id],
@@ -277,25 +281,44 @@ export const leaveGroup = async (req, res) => {
 export const changeToModerator = async (req, res) => {
   try {
     const { id, userId } = req.params;
+    const { action } = req.body; 
+
     const group = await Group.findById(id);
     if (!group) return res.status(404).json({ message: "Grupo no encontrado." });
 
+    //* permisos
+    const isCreator = group.creator.toString() === req.user.id;
     const isModerator = group.moderators.some(m => m.toString() === req.user.id);
-    if (!isModerator) return res.status(403).json({ message: "No tienes permisos para nombrar usuarios." });
+    const isPlatformAdmin = req.user.role === "admin";
+
+    if (!isCreator && !isModerator && !isPlatformAdmin) {
+      return res.status(403).json({ message: "No tienes permisos para gestionar moderadores." });
+    }
 
     const isMember = group.members.some(m => m.user.toString() === userId);
-    if (!isMember) return res.status(404).json({ message: "Usuario no es miembro del grupo." });
+    if (!isMember) return res.status(404).json({ message: "El usuario no es miembro del grupo." });
 
-    if (!group.moderators.includes(userId)) group.moderators.push(userId);
+    if (action === "promote") {
+      if (!group.moderators.includes(userId)) {
+        group.moderators.push(userId);
+      }
+    } else {
+      if (group.creator.toString() === userId) {
+        return res.status(400).json({ message: "El creador siempre debe ser moderador." });
+      }
+      group.moderators = group.moderators.filter(m => m.toString() !== userId);
+    }
+
     await group.save();
-
-    return res.status(200).json({ message: "Usuario convertido en moderador.", group });
+    return res.status(200).json({ 
+      message: action === "promote" ? "Ascendido a moderador." : "Rango revocado.", 
+      group 
+    });
   } catch (error) {
-    console.error("Error al convertir usuario:", error);
-    return res.status(500).json({ message: "Error al convertir usuario", error });
+    console.error(error);
+    return res.status(500).json({ message: "Error en el servidor.", error });
   }
 };
-
 
 export const removeMember = async (req, res) => {
   try {

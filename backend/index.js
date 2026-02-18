@@ -35,7 +35,7 @@ app.use(cors({
       callback(new Error("Error de CORS: origen no permitido"));
     }
   },
-  methods: "GET,POST,PUT,DELETE",
+  methods: "GET,POST,PUT,DELETE,PATCH,OPTIONS",
   credentials: true
 }));
 

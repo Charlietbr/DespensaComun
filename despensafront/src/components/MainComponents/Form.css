@@ -68,8 +68,10 @@ body.light .file-upload-container img{
   width: 120px;
   height: 120px;
   object-fit: cover;
-  border-radius: 8px;
+  border-radius: 50%;
 }
+
+
 
 .message {
   margin-top: 1rem;

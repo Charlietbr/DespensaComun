@@ -10,6 +10,7 @@ import Thumbnail from "../../components/designComponents/Thumbnail/Thumbnail";
 import FavoriteSetButton from "../../components/MainComponents/FavoriteSetButton/FavoriteSetButton";
 import ChatSendMessageButton from "../../components/MainComponents/ChatSendMessageButton/ChatSendMessageButton";
 import '../../components/MainComponents/Form.css';
+import Swal from "sweetalert2";
 
 
 const GroupDetail = () => {
@@ -63,13 +64,25 @@ const GroupDetail = () => {
   );
 
   //* funcs API
-  const apiCall = async (url, method = "POST") => {
-    const res = await fetch(url, {
+  const apiCall = async (url, method = "POST", body = null) => {
+    const options = {
       method,
-      headers: { Authorization: `Bearer ${token}` },
-    });
+      headers: { 
+        "Authorization": `Bearer ${token}`,
+        "Content-Type": "application/json"
+      }
+    };
+
+    if (body) {
+      options.body = JSON.stringify(body);
+    }
+
+    const res = await fetch(url, options);
+    
     const data = await res.json();
+   
     if (!res.ok) throw new Error(data.message || "Error en la operación");
+   
     return data;
   };
 
@@ -137,13 +150,37 @@ const GroupDetail = () => {
     }
   };
 
-  const promoteToModerator = async (userId) => {
+
+  //* cambiada la función promoteToModerator por handleRoleChange para hacerla bidireccional y poder retirar el rol de moderador.
+
+const handleRoleChange = async (targetUserId, newStatus) => {
+    const action = newStatus === "moderator" ? "promote" : "demote";
+
     try {
-      await apiCall(`${API_URL}/groups/${group._id}/role/${userId}`, "PATCH");
+      const response = await fetch(`${API_URL}/groups/${group._id}/role/${targetUserId}`, {
+        method: "PATCH",
+        headers: { 
+          "Authorization": `Bearer ${token}`,
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ action })
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) throw new Error(data.message || "Error al actualizar");
+
+      Swal.fire({
+        title: '¡Hecho!',
+        text: data.message,
+        icon: 'success',
+        confirmButtonColor: 'var(--chat-buttons)',
+        heightAuto: false
+      });
+
       fetchGroup();
     } catch (err) {
-      console.error(err);
-      alert("Error al nombrar moderador.");
+      Swal.fire('Error', err.message, 'error');
     }
   };
 
@@ -206,30 +243,62 @@ const GroupDetail = () => {
       </Card>
 
       {/* miembros */}
-      <Card title="Miembros" category="groups">
-        <ul>
-          {group.members?.length > 0 ? (
-            group.members.map((m) => (
-              <li key={m.user._id}>
-                <Thumbnail size="s" src={m.user.profileImage.url !== "" ? m.user.profileImage.url : defaultProfileImage} alt={"Member Image"}/>
-                <strong className="line-link"
-                    onClick={() => goToUserDetail(m.user._id)}>
-                  {m.user.name}
-                  </strong>
-                  {m.role}
-                {canEdit && m.user._id !== user._id && (
-                  <>
-                    <Button className="button xs" onClick={() => promoteToModerator(m.user._id)}>Nombrar moderador</Button>
-                    <Button className="button xs exit" onClick={() => removeMember(m.user._id)}>Eliminar</Button>
-                  </>
-                )}
-              </li>
-            ))
-          ) : (
-            <li>No hay miembros aún.</li>
-          )}
-        </ul>
-      </Card>
+<Card title="Miembros" category="groups">
+    <ul>
+      {group.members?.length > 0 ? (
+        group.members.map((m) => {
+          //! no va por rol. Verificar si está en array de moderadores.
+          const isTargetModerator = group.moderators.some(
+            (mod) => (mod._id || mod).toString() === m.user._id.toString()
+          );
+
+          return (
+            <li key={m.user._id}>
+              <Thumbnail 
+                size="s" 
+                src={m.user.profileImage?.url || defaultProfileImage} 
+                alt={"Member Image"}
+              />
+              <strong className="line-link" onClick={() => goToUserDetail(m.user._id)}>
+                {m.user.name}
+              </strong>
+              
+              {isTargetModerator && <span style={{fontSize: '0.8rem', color: 'var(--chat-buttons)', marginLeft: '5px'}}>(Mod)</span>}
+
+              {canEdit && m.user._id !== user._id && (
+                <div className="line-buttons-admin">
+                  {!isTargetModerator ? (
+                    <Button 
+                      className="button xs" 
+                      onClick={() => handleRoleChange(m.user._id, "moderator")}
+                    >
+                      Nombrar moderador
+                    </Button>
+                  ) : (
+                    <Button 
+                      className="button xs secondary" 
+                      onClick={() => handleRoleChange(m.user._id, "user")}
+                    >
+                      Quitar moderador
+                    </Button>
+                  )}
+                  
+                  <Button 
+                    className="button xs exit" 
+                    onClick={() => removeMember(m.user._id)}
+                  >
+                    Eliminar
+                  </Button>
+                </div>
+              )}
+            </li>
+          );
+        })
+      ) : (
+        <li>No hay miembros aún.</li>
+      )}
+    </ul>
+  </Card>
 
 
 

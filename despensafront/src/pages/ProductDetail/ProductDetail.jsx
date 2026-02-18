@@ -4,13 +4,14 @@ import Card from "../../components/designComponents/Card/Card";
 import Button from "../../components/designComponents/Button/Button";
 import { AuthContext } from "../../context/AuthContext";
 import { useParams, useNavigate } from "react-router-dom";
-import { defaultProfileImage } from "../../config/constants";
+import { defaultProfileImage, defaultGroupImage } from "../../config/constants";
 import FavoriteSetButton from "../../components/MainComponents/FavoriteSetButton/FavoriteSetButton";
 import ChatSendMessageButton from "../../components/MainComponents/ChatSendMessageButton/ChatSendMessageButton";
 import Thumbnail from "../../components/designComponents/Thumbnail/Thumbnail";
 import './ProductDetail.css';
 import TransactionForm from "../../components/MainComponents/TransactionForm/TransactionForm";
-import ProductEditForm from "../../components/MainComponents/ProductEditForm/ProductEditForm"
+import ProductEditForm from "../../components/MainComponents/ProductEditForm/ProductEditForm";
+import Swal from "sweetalert2";
 
 const ProductDetail = () => {
     const { user, fetchUserResource } = useContext(AuthContext);
@@ -57,14 +58,45 @@ const ProductDetail = () => {
   const canEdit = isOwner || isAdmin;
  
 
-  const handleDelete = async () => {
-      if (!window.confirm("¿Seguro que quieres eliminar este producto?")) return;
+const handleDelete = async () => {
+
+    const result = await Swal.fire({
+      title: '¿Estás seguro?',
+      text: "Esta acción eliminará el producto de forma permanente",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: 'var(--exit-button-color, #d33)',
+      cancelButtonColor: 'rgb(123, 100, 145)',
+      confirmButtonText: 'Sí, eliminar',
+      cancelButtonText: 'Cancelar',
+      heightAuto: false
+    });
+
+
+    if (result.isConfirmed) {
       try {
         await fetchUserResource(`/products/${id}`, { method: "DELETE" });
+
+        await Swal.fire({
+          title: '¡Eliminado!',
+          text: 'El producto ha sido borrado correctamente.',
+          icon: 'success',
+          timer: 1500,
+          showConfirmButton: false,
+          heightAuto: false
+        });
+
         navigate("/products");
       } catch (err) {
-        alert("Error al eliminar el producto.");
+        Swal.fire({
+          title: 'Error',
+          text: 'No ha sido posible eliminar el producto.',
+          icon: 'error',
+          confirmButtonColor: 'var(--chat-buttons)',
+          heightAuto: false
+        });
       }
+    }
   };
 
   return (
@@ -75,7 +107,7 @@ const ProductDetail = () => {
       subtitle={`${product.quantity} ${product.unit} disponibles para ${product.category}`}
       info={product.description || "Sin descripción adicional."}
       backButton={true}
-      image={product.image?.url || ""}
+      image={product?.image.url || defaultGroupImage}
     >
 
 
